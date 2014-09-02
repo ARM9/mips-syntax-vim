@@ -16,7 +16,6 @@ syn region mipsComment start="//\|#\|;" end="$" contains=armTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
 
 syn match mipsNumericOp "[+-/*%<>=&|^!]"
-
 " hex
 syn match mipsNumber "0x\x\+\>"
 syn match mipsNumber "\d\x*h\>"
@@ -100,6 +99,7 @@ syn match mipsDirective "\.file"
 syn match mipsDirective "\.float"
 syn match mipsDirective "\.fmask"
 syn match mipsDirective "\.frame"
+syn match mipsDirective "\.global"
 syn match mipsDirective "\.globl"
 syn match mipsDirective "\.gpvalue"
 syn match mipsDirective "\.gpword"
@@ -268,22 +268,22 @@ if version >= 508 || !exists("did_mips_syntax_inits")
   endif
   HiLink mipsComment      Comment
 
-  HiLink mipsNumericOp    Number
+  HiLink mipsNumericOp    Operator
   HiLink mipsNumber       Number
 
   HiLink mipsString       String
 
   HiLink mipsLabel        Label
   HiLink mipsIdentifier   Label
-  HiLink mipsDirective    Type
+  HiLink mipsDirective    PreProc
 
-  HiLink mipsRegister     Identifier
+  HiLink mipsRegister     Type
 
-  HiLink mipsInstruction  Statement
+  HiLink mipsInstruction  Function
 
   HiLink mipsTodo         Todo
   delcommand HiLink
 endif
 
-let b:current_syntax = "mips_gas"
+let b:current_syntax = "mips"
 
