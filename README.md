@@ -1,7 +1,7 @@
 Syntax highlighting for gas mips assembly, for the vim text editor.
 
 ### Installing
-Put the .vim file in /syntax into ~/.vim/syntax
+Put the .vim file(s) in /syntax into ~/.vim/syntax
 ##### or with Pathogen
 Clone this repo into your ~/.vim/bundle directory.
 
