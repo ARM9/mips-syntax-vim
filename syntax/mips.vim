@@ -12,7 +12,8 @@ syn case match
 
 syn keyword mipsTodo     contained todo fixme danger note notice bug author date
 
-syn region mipsComment start="//\|#\|;" end="$" contains=armTodo
+syn region mipsComment start="//\|;" end="$" contains=armTodo
+" syn region mipsComment start="//\|#\|;" end="$" contains=armTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
 
 syn match mipsNumericOp "[+-/*%<>=&|^!]"
@@ -28,8 +29,9 @@ syn match mipsNumber "[01]\+b\>"
 syn region mipsString start=/"/ skip=/\\"/ end=/"/
 syn region mipsString start="'" skip="\\'" end="'"
 
-syn match mipsIdentifier "\<\h\w\+\>"
-syn match mipsLabel "\<\h\w\+:"
+syn match mipsIdentifier  "\<\h\w\+\>"
+syn match mipsLabel       "\<\h\w\+:"
+syn match armCPreProc     "#\h\w*\>"
 
 syn match mipsRegister "\$zero"
 syn match mipsRegister "\$v0"
