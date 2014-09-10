@@ -12,10 +12,6 @@ syn case match
 
 syn keyword mipsTodo     contained todo fixme danger note notice bug author date
 
-syn region mipsComment start="//\|;" end="$" contains=mipsTodo
-" syn region mipsComment start="//\|#\|;" end="$" contains=mipsTodo
-syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
-
 syn match mipsNumericOp "[+-/*%<>=&|^!]"
 " hex
 syn match mipsNumber "0x\x\+\>"
@@ -26,12 +22,15 @@ syn match mipsNumber "\d\+\>"
 syn match mipsNumber "0b[01]\+\>"
 syn match mipsNumber "[01]\+b\>"
 
-syn region mipsString start=/"/ skip=/\\"/ end=/"/
-syn region mipsString start="'" skip="\\'" end="'"
+syn region mipsComment start="#" end="$" contains=mipsTodo
+syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
+
+syn region mipsString start="\"" skip=+\\"+ end="\"\|$"
+syn region mipsString start="'" skip=+\\'+ end="'\|$"
 
 syn match mipsIdentifier  "\<\h\w\+\>"
 syn match mipsLabel       "\<\h\w\+:"
-syn match mipsCPreProc     "#\h\w*\>"
+syn match mipsCPreProc    "#\h\w*\>"
 
 syn match mipsRegister "\$zero"
 syn match mipsRegister "\$v0"
@@ -74,156 +73,8 @@ while i < 32
     let i = i + 1
 endwhile
 
-syn match gasDirective "\.2byte"
-syn match gasDirective "\.4byte"
-syn match gasDirective "\.8byte"
-syn match gasDirective "\.aent"
-syn match gasDirective "\.abort"
-syn match gasDirective "\.align"
-syn match gasDirective "\.altmacro"
-syn match gasDirective "\.ascii"
-syn match gasDirective "\.asciz"
-syn match gasDirective "\.balign[wl]"
-syn match gasDirective "\.bundle_align"
-syn match gasDirective "\.bundle_lock"
-syn match gasDirective "\.bundle_unlock"
-syn match gasDirective "\.byte"
-syn match gasDirective "\.cfi_sections"
-syn match gasDirective "\.cfi_startproc"
-syn match gasDirective "\.cfi_endproc"
-syn match gasDirective "\.cfi_personality"
-syn match gasDirective "\.cfi_lsda"
-syn match gasDirective "\.cfi_def_cfa"
-syn match gasDirective "\.cfi_def_cfa_register"
-syn match gasDirective "\.cfi_def_cfa_offset"
-syn match gasDirective "\.cfi_adjust_cfa_offset"
-syn match gasDirective "\.cfi_offset"
-syn match gasDirective "\.cfi_rel_offset"
-syn match gasDirective "\.cfi_register"
-syn match gasDirective "\.cfi_restore"
-syn match gasDirective "\.cfi_undefined"
-syn match gasDirective "\.cfi_same_value"
-syn match gasDirective "\.cfi_remember_state"
-syn match gasDirective "\.cfi_return_column"
-syn match gasDirective "\.cfi_signal_frame"
-syn match gasDirective "\.cfi_window_save"
-syn match gasDirective "\.cfi_escape"
-syn match gasDirective "\.cfi_val_encoded_addr"
-syn match gasDirective "\.comm"
-syn match gasDirective "\.cpadd"
-syn match gasDirective "\.cpload"
-syn match gasDirective "\.cplocal"
-syn match gasDirective "\.cprestore"
-syn match gasDirective "\.cpreturn"
-syn match gasDirective "\.cpsetup"
-syn match gasDirective "\.data"
-syn match gasDirective "\.def"
-syn match gasDirective "\.desc"
-syn match gasDirective "\.dim"
-syn match gasDirective "\.double"
-syn match gasDirective "\.dword"
-syn match gasDirective "\.dynsym"
-syn match gasDirective "\.eject"
-syn match gasDirective "\.else"
-syn match gasDirective "\.elseif"
-syn match gasDirective "\.end"
-syn match gasDirective "\.endef"
-syn match gasDirective "\.endfunc"
-syn match gasDirective "\.endif"
-syn match gasDirective "\.endr"
-syn match gasDirective "\.equ"
-syn match gasDirective "\.equiv"
-syn match gasDirective "\.eqv"
-syn match gasDirective "\.err"
-syn match gasDirective "\.error"
-syn match gasDirective "\.exitm"
-syn match gasDirective "\.extern"
-syn match gasDirective "\.fail"
-syn match gasDirective "\.file"
-syn match gasDirective "\.fill"
-syn match gasDirective "\.float"
-syn match gasDirective "\.fmask"
-syn match gasDirective "\.frame"
-syn match gasDirective "\.func"
-syn match gasDirective "\.global"
-syn match gasDirective "\.globl"
-syn match gasDirective "\.gpvalue"
-syn match gasDirective "\.gpword"
-syn match gasDirective "\.gnu_attribute"
-syn match gasDirective "\.hidden"
-syn match gasDirective "\.hword"
-syn match gasDirective "\.ident"
-syn match gasDirective "\.if"
-syn match gasDirective "\.incbin"
-syn match gasDirective "\.include"
-syn match gasDirective "\.int"
-syn match gasDirective "\.internal"
-syn match gasDirective "\.irp[c]"
-syn match gasDirective "\.kdata"
-syn match gasDirective "\.ktext"
-syn match gasDirective "\.lab"
-syn match gasDirective "\.lcomm"
-syn match gasDirective "\.lflags"
-syn match gasDirective "\.line"
-syn match gasDirective "\.linkonce"
-syn match gasDirective "\.list"
-syn match gasDirective "\.ln"
-syn match gasDirective "\.loc"
-syn match gasDirective "\.loc_mark_labels"
-syn match gasDirective "\.local"
-syn match gasDirective "\.long"
-syn match gasDirective "\.mask"
-syn match gasDirective "\.mri"
-syn match gasDirective "\.noaltmacro"
-syn match gasDirective "\.nolist"
-syn match gasDirective "\.nop"
-syn match gasDirective "\.octa"
-syn match gasDirective "\.option"
-syn match gasDirective "\.org"
-syn match gasDirective "\.p2align[wl]"
-syn match gasDirective "\.popsection"
-syn match gasDirective "\.previous"
-syn match gasDirective "\.print"
-syn match gasDirective "\.protected"
-syn match gasDirective "\.psize"
-syn match gasDirective "\.purgem"
-syn match gasDirective "\.pushsection"
-syn match gasDirective "\.quad"
-syn match gasDirective "\.reloc"
-syn match gasDirective "\.rept"
-syn match gasDirective "\.repeat"
-syn match gasDirective "\.rdata"
-syn match gasDirective "\.sbttl"
-syn match gasDirective "\.scl"
-syn match gasDirective "\.sdata"
-syn match gasDirective "\.section"
-syn match gasDirective "\.set"
-syn match gasDirective "\.short"
-syn match gasDirective "\.single"
-syn match gasDirective "\.size"
-syn match gasDirective "\.skip"
-syn match gasDirective "\.sleb128"
-syn match gasDirective "\.space"
-syn match gasDirective "\.stab[dns]"
-syn match gasDirective "\.string"
-syn match gasDirective "\.struct"
-syn match gasDirective "\.subsection"
-syn match gasDirective "\.symver"
-syn match gasDirective "\.tag"
-syn match gasDirective "\.text"
-syn match gasDirective "\.title"
-syn match gasDirective "\.type"
-syn match gasDirective "\.uleb128"
-syn match gasDirective "\.val"
-syn match gasDirective "\.version"
-syn match gasDirective "\.verstamp"
-syn match gasDirective "\.vtable_entry"
-syn match gasDirective "\.vtable_inherit"
-syn match gasDirective "\.warning"
-syn match gasDirective "\.weak"
-syn match gasDirective "\.weakext"
-syn match gasDirective "\.weakref"
-syn match gasDirective "\.word"
+so <sfile>:p:h/gas_directives.vim
+syn match mipsDirective "\.insn"
 
 " Arithmetic and Logical Instructions
 syn keyword mipsInstruction abs
@@ -275,13 +126,13 @@ syn keyword mipsInstruction tlt tltu tlti tltiu
 " Load Instructions
 syn keyword mipsInstruction la
 syn keyword mipsInstruction lb lbu lh lhu
-syn keyword mipsInstruction lw lwc1 lwl lwr
+syn keyword mipsInstruction lw lwu lwc1 lwl lwr
 syn keyword mipsInstruction ld
 syn keyword mipsInstruction ulh ulhu ulw
-syn keyword mipsInstruction ll
+syn keyword mipsInstruction ll lld
 
 " Store Instructions
-syn keyword mipsInstruction sb sh sw swc1 sdc1 swl swr sd ush usw sc
+syn keyword mipsInstruction sb sh sw swc1 sdc1 swl swr sd ush usw sc scd
 
 " Data Movement Instructions
 syn keyword mipsInstruction move
@@ -348,6 +199,9 @@ syn keyword mipsInstruction syscall
 syn keyword mipsInstruction break
 syn keyword mipsInstruction nop
 
+" misc
+syn keyword mipsInstruction cache
+
 if version >= 508 || !exists("did_mips_syntax_inits")
   if version < 508
     let did_mips_syntax_inits = 1
@@ -365,6 +219,7 @@ if version >= 508 || !exists("did_mips_syntax_inits")
   HiLink mipsLabel        Label
   HiLink mipsIdentifier   Label
   HiLink gasDirective     PreProc
+  HiLink mipsDirective    PreProc
   HiLink mipsCPreProc     Identifier
 
   HiLink mipsRegister     Type
