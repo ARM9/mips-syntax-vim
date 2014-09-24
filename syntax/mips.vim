@@ -22,7 +22,7 @@ syn match mipsNumber "\d\+\>"
 syn match mipsNumber "0b[01]\+\>"
 syn match mipsNumber "[01]\+b\>"
 
-syn region mipsComment start="#" end="$" contains=mipsTodo
+syn region mipsComment start="#\|//" end="$" contains=mipsTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
 
 syn region mipsString start="\"" skip=+\\"+ end="\"\|$"
@@ -73,7 +73,7 @@ while i < 32
     let i = i + 1
 endwhile
 
-so <sfile>:p:h/gas_directives.vim
+so <sfile>:p:h/include/gas_directives.vim
 syn match mipsDirective "\.insn"
 
 " Arithmetic and Logical Instructions
@@ -200,7 +200,7 @@ syn keyword mipsInstruction break
 syn keyword mipsInstruction nop
 
 " misc
-syn keyword mipsInstruction cache
+syn keyword mipsInstruction cache sync
 
 if version >= 508 || !exists("did_mips_syntax_inits")
   if version < 508

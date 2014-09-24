@@ -1,9 +1,12 @@
 Syntax highlighting for gas mips assembly, for the vim text editor.
 
 ### Installing
-Put the .vim file(s) in /syntax into ~/.vim/syntax
+Copy /syntax into ~/.vim
 __or with Pathogen__
 Clone this repo into your ~/.vim/bundle directory.
+```
+git clone https://github.com/ARM9/mips-syntax.git
+```
 
 ### Using
 In your .vimrc:
