@@ -5,7 +5,7 @@ Copy /syntax into ~/.vim
 __or with Pathogen__
 Clone this repo into your ~/.vim/bundle directory.
 ```
-git clone https://github.com/ARM9/mips-syntax.git
+git clone https://github.com/ARM9/mips-syntax-vim.git
 ```
 
 ### Using
