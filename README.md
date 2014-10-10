@@ -1,4 +1,4 @@
-Syntax highlighting for gas mips assembly, for the vim text editor.
+Gnu as mips syntax highlighting for the vim text editor.
 
 ### Installing
 Copy /syntax into ~/.vim
