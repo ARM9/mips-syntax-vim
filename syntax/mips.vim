@@ -36,6 +36,7 @@ syn match mipsLabel       "\<\h\w\+:"
 syn match mipsCPreProc    "#\h\w*\>"
 
 syn match mipsRegister "\$zero"
+syn match mipsRegister "\$at"
 syn match mipsRegister "\$v0"
 syn match mipsRegister "\$v1"
 syn match mipsRegister "\$a0"
