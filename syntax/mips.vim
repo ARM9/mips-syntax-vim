@@ -23,7 +23,6 @@ syn match mipsNumber "\d\x*h\>"
 syn match mipsNumber "\d\+\>"
 " bin
 syn match mipsNumber "0b[01]\+\>"
-syn match mipsNumber "[01]\+b\>"
 
 syn region mipsComment start="#\|//" end="$" contains=mipsTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
