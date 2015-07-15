@@ -15,7 +15,13 @@ syn case ignore
 
 syn keyword mipsTodo     contained todo fixme danger note notice bug author date
 
+
 syn match mipsNumericOp "[+-/*%<>=&|^!]"
+
+" Assembler identifiers/labels
+syn match mipsIdentifier "\<[.\$_A-Za-z0-9]\+\>"
+syn match mipsLabel      "\<[.\$_A-Za-z0-9]\+:"
+
 " dec
 syn match mipsNumber    "\d\+\>"
 " hex
@@ -31,9 +37,6 @@ syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
 syn region mipsString start="\"" skip=+\\"+ end="\"\|$"
 syn region mipsString start="'" skip=+\\'+ end="'\|$"
 
-syn match mipsIdentifier    "\<\h\w*\>"
-syn match mipsLabel         "\<\h\w*:"
-syn match mipsLabel         "\<\d\{1,3\}[:fb]\>"
 syn match mipsCPreProc      "^\s*#\s*\(include\|define\|undef\|if\|ifdef\|ifndef\|elif\|else\|endif\|error\|pragma\)\>"
 
 syn match mipsRegister "\$zero"
