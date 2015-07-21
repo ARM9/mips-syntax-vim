@@ -62,7 +62,9 @@ endwhile
 
 so <sfile>:p:h/include/mips_instructions.vim
 so <sfile>:p:h/include/gas_directives.vim
+syn match mipsDirective "\.ent"
 syn match mipsDirective "\.insn"
+syn match mipsDirective "\.nan"
 
 if version >= 508 || !exists("did_mips_syntax_inits")
     if version < 508
