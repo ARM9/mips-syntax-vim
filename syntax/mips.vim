@@ -29,7 +29,7 @@ syn match mipsNumber    "0x\x\+\>"
 " bin
 syn match mipsNumber    "0b[01]\+\>"
 " float
-syn match mipsNumber    "\d*\.\d\+\>"
+syn match mipsNumber    "\%(\d\+\.\d*\|\d*\.\d\+\)\%([eE]\?[-+]\?\d\+\)\?\>"
 
 syn region mipsComment start="#\|//" end="$" contains=mipsTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo

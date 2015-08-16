@@ -25,7 +25,7 @@ syn match mipspsyqNumber "\d\x*h\>"
 " bin
 syn match mipspsyqNumber "%[01]\+\>"
 " float
-syn match mipspsyqNumber "\d*\.\d\+\>"
+syn match mipspsyqNumber "\%(\d\+\.\d*\|\d*\.\d\+\)\%([eE]\?[-+]\?\d\+\)\?\>"
 
 syn region mipspsyqComment start=";\|^*" end="$" contains=mipspsyqTodo
 
