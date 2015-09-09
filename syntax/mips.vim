@@ -23,13 +23,13 @@ syn match mipsIdentifier "\<[.\$_A-Za-z0-9]\+\>"
 syn match mipsLabel      "\<[.\$_A-Za-z0-9]\+:"
 
 " dec
-syn match mipsNumber    "\d\+\>"
+syn match mipsNumber    "\d\+"
 " hex
-syn match mipsNumber    "0x\x\+\>"
+syn match mipsNumber    "0x\x\+"
 " bin
-syn match mipsNumber    "0b[01]\+\>"
+syn match mipsNumber    "0b[01]\+"
 " float
-syn match mipsNumber    "\%(\d\+\.\d*\|\d*\.\d\+\)\%([eE]\?[-+]\?\d\+\)\?\>"
+syn match mipsNumber    "\%(\d\+\.\d*\|\d*\.\d\+\)\%([eE]\?[-+]\?\d\+\)\?"
 
 syn region mipsComment start="#\|//" end="$" contains=mipsTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
