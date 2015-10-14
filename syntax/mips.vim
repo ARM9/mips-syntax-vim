@@ -13,8 +13,9 @@ endif
 
 syn case ignore
 
-syn keyword mipsTodo     contained todo fixme danger note notice bug author date
+setlocal iskeyword  +=.,_
 
+syn keyword mipsTodo     contained todo fixme danger note notice bug author date
 
 syn match mipsNumericOp "[+-/*%<>=&|^!]"
 
