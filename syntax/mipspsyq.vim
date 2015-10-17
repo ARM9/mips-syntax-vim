@@ -35,19 +35,19 @@ syn region mipspsyqString start="'" skip=+\\'+ end="'\|$"
 syn match mipspsyqIdentifier    "\<\h\w\+\>"
 syn match mipspsyqLabel         "\<\h\w\+:"
 
-syn match mipspsyqRegister "v[01]"
-syn match mipspsyqRegister "a[0-3]"
-syn match mipspsyqRegister "t[0-9]"
-syn match mipspsyqRegister "s[0-7]"
-syn match mipspsyqRegister "k[01]"
+syn match mipspsyqRegister "\<v[01]\>"
+syn match mipspsyqRegister "\<a[0-3]\>"
+syn match mipspsyqRegister "\<t[0-9]\>"
+syn match mipspsyqRegister "\<s[0-7]\>"
+syn match mipspsyqRegister "\<k[01]\>"
 syn keyword mipspsyqRegister zero at gp sp fp ra
 
 let i = 0
 while i < 32
     " This is for the regular registers
-    execute 'syn match mipspsyqRegister "r' . i . '"'
+    execute 'syn match mipspsyqRegister "\<r' . i . '\>"'
     " And this is for the FP registers
-    execute 'syn match mipspsyqRegister "f' . i . '"'
+    execute 'syn match mipspsyqRegister "\<f' . i . '\>"'
     let i = i + 1
 endwhile
 

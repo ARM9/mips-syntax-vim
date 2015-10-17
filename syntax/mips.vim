@@ -24,13 +24,13 @@ syn match mipsIdentifier "\<[.\$_A-Za-z0-9]\+\>"
 syn match mipsLabel      "\<[.\$_A-Za-z0-9]\+:"
 
 " dec
-syn match mipsNumber    "\d\+"
+syn match mipsNumber    "\d\+\>"
 " hex
-syn match mipsNumber    "0x\x\+"
+syn match mipsNumber    "0x\x\+\>"
 " bin
-syn match mipsNumber    "0b[01]\+"
+syn match mipsNumber    "0b[01]\+\>"
 " float
-syn match mipsNumber    "\%(\d\+\.\d*\|\d*\.\d\+\)\%([eE]\?[-+]\?\d\+\)\?"
+syn match mipsNumber    "\%(\d\+\.\d*\|\d*\.\d\+\)\%([eE]\?[-+]\?\d\+\)\?\>"
 
 syn region mipsComment start="#\|//" end="$" contains=mipsTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
@@ -40,24 +40,24 @@ syn region mipsString start="'" skip=+\\'+ end="'\|$"
 
 syn match mipsCPreProc      "^\s*#\s*\(include\|define\|undef\|if\|ifdef\|ifndef\|elif\|else\|endif\|error\|pragma\)\>"
 
-syn match mipsRegister "\$zero"
-syn match mipsRegister "\$at"
-syn match mipsRegister "\$v[01]"
-syn match mipsRegister "\$a[0-3]"
-syn match mipsRegister "\$t[0-9]"
-syn match mipsRegister "\$s[0-7]"
-syn match mipsRegister "\$k[01]"
-syn match mipsRegister "\$gp"
-syn match mipsRegister "\$sp"
-syn match mipsRegister "\$fp"
-syn match mipsRegister "\$ra"
+syn match mipsRegister "\$zero\>"
+syn match mipsRegister "\$at\>"
+syn match mipsRegister "\$v[01]\>"
+syn match mipsRegister "\$a[0-3]\>"
+syn match mipsRegister "\$t[0-9]\>"
+syn match mipsRegister "\$s[0-7]\>"
+syn match mipsRegister "\$k[01]\>"
+syn match mipsRegister "\$gp\>"
+syn match mipsRegister "\$sp\>"
+syn match mipsRegister "\$fp\>"
+syn match mipsRegister "\$ra\>"
 
 let i = 0
 while i < 32
     " This is for the regular registers
-    execute 'syn match mipsRegister "\$' . i . '"'
+    execute 'syn match mipsRegister "\$' . i . '\>"'
     " And this is for the FP registers
-    execute 'syn match mipsRegister "\$f' . i . '"'
+    execute 'syn match mipsRegister "\$f' . i . '\>"'
     let i = i + 1
 endwhile
 
