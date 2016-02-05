@@ -35,8 +35,10 @@ syn match mipsNumber    "\%(\d\+\.\d*\|\d*\.\d\+\)\%([eE]\?[-+]\?\d\+\)\?\>"
 syn region mipsComment start="#\|//" end="$" contains=mipsTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
 
+" String literal
 syn region mipsString start="\"" skip=+\\"+ end="\"\|$"
-syn region mipsString start="'" skip=+\\'+ end="'\|$"
+" Ascii character literal
+syn match mipsString    "'\\\?[\d32-~]'\?"
 
 syn match mipsCPreProc      "^\s*#\s*\(include\|define\|undef\|if\|ifdef\|ifndef\|elif\|else\|endif\|error\|pragma\)\>"
 
