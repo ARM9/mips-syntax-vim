@@ -36,7 +36,7 @@ syn region mipsComment start="#\|//" end="$" contains=mipsTodo
 syn region mipsComment start="/\*" end="\*/" contains=mipsTodo
 
 " String literal
-syn region mipsString start="\"" skip=+\\"+ end="\"\|$"
+syn region mipsString start=/"/ skip=/\\"/ end=/"/
 " Ascii character literal
 syn match mipsString    "'\\\?[\d32-~]'\?"
 
